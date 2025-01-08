@@ -1,0 +1,5 @@
+{"Name":"Картошка","ProductUnit":0,"Price":10.0}
+{"Name":"Морковь","ProductUnit":0,"Price":8.0}
+{"Name":"Сыр","ProductUnit":0,"Price":500.0}
+{"Name":"Тесто","ProductUnit":0,"Price":20.0}
+{"Name":"Сахар","ProductUnit":0,"Price":20.0}

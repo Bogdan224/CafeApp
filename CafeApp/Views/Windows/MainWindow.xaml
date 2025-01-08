@@ -1,0 +1,56 @@
+﻿<Window x:Name="___Без_имени_" x:Class="CafeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeApp"
+        mc:Ignorable="d"
+        Height="450" 
+        Width="900" 
+        MinWidth="900"
+        MinHeight="250"
+        Background="#FF131010">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" MinWidth="150"/>
+            <ColumnDefinition Width="0.8*" MinWidth="450"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button
+                x:Name="storageButton"
+                Height="30"
+                Margin="10 10 10 5"
+                Content="Склад" 
+                Click="storageButton_Click"/>
+            <Button
+                x:Name="menuButton"
+                Height="30"
+                Margin="10 5"
+                Content="Меню"/>
+            <Button
+                x:Name="catalogButton"
+                Height="30"
+                Margin="10 5"
+                Content="Каталог" Click="catalogButton_Click"/>
+            <Button
+                x:Name="getOrderButton"
+                Height="30"
+                Margin="10 5"
+                Content="Принять заказ"/>
+            <Button
+                x:Name="makeRequestButton"
+                Height="30"
+                Margin="10 5"
+                Content="Составить заявку"/>
+            <Button
+                x:Name="addProviderButton"
+                Height="30"
+                Margin="10 5"
+                Content="Добавить поставщика" Click="addProviderButton_Click"/>
+        </StackPanel>
+
+        <ContentControl
+            x:Name="currentUC"
+            Grid.Column="1"/>
+    </Grid>
+</Window>

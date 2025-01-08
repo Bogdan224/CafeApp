@@ -1,0 +1,38 @@
+﻿<Window x:Class="CafeApp.Views.Windows.SaveChanges"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeApp.Views.Windows"
+        mc:Ignorable="d"
+        Title="SaveChanges"
+        Height="150"
+        Width="200"
+        MinHeight="150" 
+        MaxHeight="150" 
+        MinWidth="200"
+        MaxWidth="200">
+    <Grid>
+        <Label
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="0 0 0 20"
+            Content="Хотите сохранить изменения?"/>
+        <Grid
+            VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button
+                Margin="5"
+                Content="Не сохранять" Click="dontSaveButton_Click"/>
+            <Button
+                Grid.Column="1"
+                Margin="5"
+                Content="Сохранить" 
+                Click="saveButton_Click"/>
+        </Grid>
+        
+    </Grid>
+</Window>

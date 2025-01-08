@@ -1,0 +1,1 @@
+{"ProviderCompany":{"Name":"Пятерочка","Address":"ул. Ленина 1","CompanyDirector":{"FullName":"Иванов Иван Иванович","PhoneNumber":"+7(952)812-22-31"}},"ProviderBank":0,"Account":"124468643","INN":"92835986309346"}
