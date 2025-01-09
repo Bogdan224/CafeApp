@@ -23,7 +23,7 @@ namespace CafeApp.Views.UserControls
     /// </summary>
     public partial class StorageViewControl : UserControl
     {
-        private Storage _storage;
+        private Storage<ProductSuply> _storage;
 
         public StorageViewControl()
         {
@@ -33,8 +33,8 @@ namespace CafeApp.Views.UserControls
 
         private void StorageViewControl_Loaded(object sender, RoutedEventArgs e)
         {
-            _storage = Storage.GetInstance();
-            dataGrid.ItemsSource = _storage.ProductSuplies;
+            _storage = Storage<ProductSuply>.GetInstance();
+            productSuplyDataGrid.ItemsSource = _storage.StorageCollection;
         }
 
         private void orderButton_Click(object sender, RoutedEventArgs e)
@@ -44,15 +44,6 @@ namespace CafeApp.Views.UserControls
             {
                 if (mainWindow.currentUC is OrderProductsUserControl) return;
                 mainWindow.currentUC.Content = new OrderProductsUserControl();
-            }
-        }
-
-        private void saveButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (_storage.Changes)
-            {
-                _storage.SaveChanges();
-                MessageBox.Show("Сохранено!");
             }
         }
     }

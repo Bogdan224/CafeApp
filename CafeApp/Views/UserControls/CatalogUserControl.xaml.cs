@@ -22,18 +22,18 @@ namespace CafeApp.Views.UserControls
     /// </summary>
     public partial class CatalogUserControl : UserControl
     {
-        private Catalog catalog;
+        private Storage<Product> storage;
 
         public CatalogUserControl()
         {
-            catalog = Catalog.GetInstance();
+            storage = Storage<Product>.GetInstance();
             Loaded += CatalogUserControl_Loaded;
             InitializeComponent();
         }
 
         private void CatalogUserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            catalogDataGrid.ItemsSource = catalog.Products;
+            catalogDataGrid.ItemsSource = storage.StorageCollection;
             unitComboBox.ItemsSource = Enum.GetValues(typeof(Unit));
             unitComboBox.SelectedItem = unitComboBox.Items[0];
         }
@@ -44,8 +44,11 @@ namespace CafeApp.Views.UserControls
             try
             {
                 Product product = new Product(nameTextBox.Text, Convert.ToDouble(priceTextBox.Text), unit);
-                if (catalog.Products.FirstOrDefault((x) => { return x.Name.ToLower().Equals(product.Name.ToLower()); }) == null)
-                    catalog.Products.Add(product);
+                if (storage.StorageCollection.FirstOrDefault((x) => { return x.Name.ToLower().Equals(product.Name.ToLower()); }) == null)
+                {
+                    storage.StorageCollection.Add(product);
+                    storage.SaveChanges();
+                }
                 else
                     MessageBox.Show("Данный продукт присутствует в каталоге!");
                 nameTextBox.Text = "";
@@ -57,13 +60,5 @@ namespace CafeApp.Views.UserControls
             }
         }
 
-        private void saveChangesButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (catalog.Changes)
-            {
-                catalog.SaveChanges();
-                MessageBox.Show("Сохранено!");
-            }
-        }
     }
 }

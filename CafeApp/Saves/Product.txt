@@ -1,0 +1,12 @@
+{"Name":"Картошка","ProductUnit":0,"Price":10.0}
+{"Name":"Морковь","ProductUnit":0,"Price":8.0}
+{"Name":"Сыр","ProductUnit":0,"Price":500.0}
+{"Name":"Тесто","ProductUnit":0,"Price":20.0}
+{"Name":"Сахар","ProductUnit":0,"Price":20.0}
+{"Name":"Свинная шея","ProductUnit":0,"Price":400.0}
+{"Name":"Соус Барбекю","ProductUnit":1,"Price":50.0}
+{"Name":"Сливки","ProductUnit":1,"Price":30.0}
+{"Name":"Шоколад","ProductUnit":0,"Price":300.0}
+{"Name":"Алла Мода Пино Гриджио","ProductUnit":1,"Price":1434.0}
+{"Name":"Соль","ProductUnit":0,"Price":18.0}
+{"Name":"Томат","ProductUnit":0,"Price":100.0}

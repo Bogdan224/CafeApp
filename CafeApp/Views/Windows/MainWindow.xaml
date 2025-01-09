@@ -26,22 +26,12 @@
                 x:Name="menuButton"
                 Height="30"
                 Margin="10 5"
-                Content="Меню"/>
+                Content="Меню" Click="menuButton_Click"/>
             <Button
                 x:Name="catalogButton"
                 Height="30"
                 Margin="10 5"
                 Content="Каталог" Click="catalogButton_Click"/>
-            <Button
-                x:Name="getOrderButton"
-                Height="30"
-                Margin="10 5"
-                Content="Принять заказ"/>
-            <Button
-                x:Name="makeRequestButton"
-                Height="30"
-                Margin="10 5"
-                Content="Составить заявку"/>
             <Button
                 x:Name="addProviderButton"
                 Height="30"

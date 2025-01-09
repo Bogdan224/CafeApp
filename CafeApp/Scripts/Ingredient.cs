@@ -1,50 +1,34 @@
-﻿using System;
+﻿using CafeApp.Helpers.Converters;
+using System;
 
 namespace CafeApp.Scripts
 {
     public class Ingredient : IComparable<Ingredient>
     {
-        private double _netWeight;
-        private double _grossWeight;
+        private double _count;
 
-        public double NetWeight
+        public double Count
         {
             get
             {
-                return _netWeight;
+                return _count;
             }
             set
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Ingredient.NetWeight wrong value");
+                    throw new ArgumentException("Ingredient.Count wrong value");
                 }
-                _netWeight = value;
+                _count = value;
             }
         }
-        public double GrossWeight
-        {
-            get
-            {
-                return _grossWeight;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Ingredient.GrossWeight wrong value");
-                }
-                _grossWeight = value;
-            }
-        }
-        public ProductSuply IngredientProduct { get; set; }
+
+        public Product IngredientProduct { get; set; }
         public Ingredient(
-            double netWeight, 
-            double grossWeight, 
-            ProductSuply product)
+            double count, 
+            Product product)
         {
-            NetWeight = netWeight;
-            GrossWeight = grossWeight;
+            Count = count;
             IngredientProduct = product;
         }
 
@@ -56,8 +40,7 @@ namespace CafeApp.Scripts
         public string Info()
         {
             return $"Название: {IngredientProduct.Name}\n" +
-                $"Вес нетто: {NetWeight} г.\n" +
-                $"Вес брутто: {GrossWeight} г.\n";
+                $"Кол-во: {Count} {IngredientProduct.ProductUnit.UnitInfo()}\n";
         }
     }
 }

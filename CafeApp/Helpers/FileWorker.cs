@@ -15,7 +15,6 @@ namespace CafeApp.Helpers
         {
             if (!File.Exists(path + filename))
             {
-                File.Create(path + filename);
                 File.OpenWrite(path + filename);
             }
             return File.ReadLines(path + filename).ToList();
@@ -24,7 +23,6 @@ namespace CafeApp.Helpers
         {
             if (!File.Exists(path + filename))
             {
-                File.Create(path + filename);
                 File.OpenWrite(path + filename);
             }
             File.WriteAllText(path + filename, value);
@@ -34,7 +32,6 @@ namespace CafeApp.Helpers
             if (!File.Exists(path + filename))
             {
                 File.OpenWrite(path + filename);
-                File.Create(path + filename);
             }
             File.AppendAllText(path + filename, value);
         }

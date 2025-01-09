@@ -28,11 +28,11 @@ namespace CafeApp.Views.UserControls
     {
         private ObservableCollection<ObtainedProduct> obtainedProducts;
         private List<Provider> providers;
-        private Catalog catalog;
+        private Storage<Product> storage;
 
         public OrderProductsUserControl()
         {
-            catalog = Catalog.GetInstance();
+            storage = Storage<Product>.GetInstance();
             Loaded += OrderProductsUserControl_Loaded;
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace CafeApp.Views.UserControls
                 providers.Add(ConverterToJson.ConvertFromJson<Provider>(item));
             }
             providerComboBox.ItemsSource = providers;
-            productComboBox.ItemsSource = catalog.Products;
+            productComboBox.ItemsSource = storage.StorageCollection;
             obtainedProducts = new ObservableCollection<ObtainedProduct>();
             obtainedProductDataGrid.ItemsSource = obtainedProducts;
         }
@@ -109,15 +109,16 @@ namespace CafeApp.Views.UserControls
                     if(order != null)
                     {
                         FileWorker.AppendToFile("Log\\Orders.txt", ConverterToJson.ConvertToJson(order) + "\n");
-                        Storage storage = Storage.GetInstance();
+                        Storage<ProductSuply> storage = Storage<ProductSuply>.GetInstance();
                         foreach(var item in obtainedProducts)
                         {
-                            if (storage.ProductSuplies.FirstOrDefault((x) => { return x.Name.Equals(item.ProductInOrder.Name); }) is ProductSuply productSuply)
-                                storage.ProductSuplies[storage.ProductSuplies.IndexOf(productSuply)].StockBalance += item.Count;
+                            if (storage.StorageCollection.FirstOrDefault((x) => { return x.Name.Equals(item.ProductInOrder.Name); }) is ProductSuply productSuply)
+                                storage.StorageCollection[storage.StorageCollection.IndexOf(productSuply)].StockBalance += item.Count;
                             else
-                                storage.ProductSuplies.Add(new ProductSuply(item.ProductInOrder, provider, item.Count));
+                                storage.StorageCollection.Add(new ProductSuply(item.ProductInOrder, provider, item.Count));
                         }
-                        
+                        storage.SaveChanges();
+
                         MessageBox.Show("Заказ успешно составлен!");
                         ((MainWindow)Window.GetWindow(this)).currentUC.Content = new OrderProductsUserControl();
                     }

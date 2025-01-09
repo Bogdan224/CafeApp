@@ -23,6 +23,7 @@ namespace CafeApp
     {
         private StorageViewControl storageUC;
         private CatalogUserControl catalogUC;
+        private MenuUserControl menuUC;
 
         public MainWindow()
         {
@@ -34,13 +35,14 @@ namespace CafeApp
         {
             catalogUC = new CatalogUserControl();
             storageUC = new StorageViewControl();
+            menuUC = new MenuUserControl();
             Closed += MainWindow_Closed;
             currentUC.Content = new HomeUserControl();
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void storageButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +61,12 @@ namespace CafeApp
         {
             if (currentUC is ProviderUserControl) return;
             currentUC.Content = new ProviderUserControl();
+        }
+
+        private void menuButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentUC is MenuUserControl) return;
+            currentUC.Content = menuUC;
         }
     }
 }

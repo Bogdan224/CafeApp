@@ -14,8 +14,63 @@
                 Foreground="White"
                 HorizontalAlignment="Center"
                 Content="Меню"/>
-            <DataGrid>
-                
+            <DataGrid
+                Background="Transparent"
+                x:Name="finalProductDataGrid"
+                AutoGenerateColumns="False" 
+                CanUserAddRows="False"   
+                RowDetailsVisibilityMode="Visible"
+                MaxHeight="350">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn 
+                        Width="*"
+                        Binding="{Binding Path=Name}"
+                        Foreground="Black"
+                        IsReadOnly="True">
+                        <DataGridTextColumn.Header>
+                            <TextBlock 
+                                Foreground="Black"
+                                Text="Название"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn 
+                        Width="0.5*"
+                        Binding="{Binding Path=Price}"
+                        Foreground="Black"
+                        IsReadOnly="True">
+                        <DataGridTextColumn.Header>
+                            <TextBlock 
+                                Foreground="Black"
+                                Text="Цена"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding Path=Group}"
+                        Foreground="Black"
+                        IsReadOnly="True">
+                        <DataGridTextColumn.Header>
+                            <TextBlock 
+                                Foreground="Black"
+                                Text="Категория"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTemplateColumn 
+                        Width="0.5*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Content="Описание"
+                                    Click="descriptionButton_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
         <Button
@@ -23,6 +78,7 @@
             VerticalAlignment="Bottom"
             Width="150"
             Height="30"
-            Content="Добавить блюдо"/>
+            Content="Добавить блюдо" 
+            Click="addFinalProductButton_Click"/>
     </Grid>
 </UserControl>

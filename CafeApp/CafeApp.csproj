@@ -63,6 +63,9 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\FileWorker.cs" />
     <Compile Include="Scripts\ISavable.cs" />
+    <Compile Include="Views\UserControls\AddFinalProductUserControl.xaml.cs">
+      <DependentUpon>AddFinalProductUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,10 @@
     <Compile Include="Views\Windows\SaveChanges.xaml.cs">
       <DependentUpon>SaveChanges.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\UserControls\AddFinalProductUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\CatalogUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,7 +116,6 @@
     </Compile>
     <Compile Include="Helpers\Converters\ConverterToJson.cs" />
     <Compile Include="Helpers\Extentions.cs" />
-    <Compile Include="Scripts\Catalog.cs" />
     <Compile Include="Views\UserControls\CatalogUserControl.xaml.cs">
       <DependentUpon>CatalogUserControl.xaml</DependentUpon>
     </Compile>
@@ -162,14 +168,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Log\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Log\*.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Saves\*.txt">
+    <Content Include="Saves\Product.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Saves\ProductSuply.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Saves\Providers.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

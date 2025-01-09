@@ -62,7 +62,8 @@
             AutoGenerateColumns="False" 
             CanUserAddRows="False"
             CanUserResizeColumns="False"
-            x:Name="catalogDataGrid">
+            x:Name="catalogDataGrid"
+                MaxHeight="350">
                 <DataGrid.Columns>
                     <DataGridTextColumn 
                     Width="*"
@@ -101,13 +102,5 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <Button 
-            VerticalAlignment="Bottom"
-            Content="Сохранить изменения"
-            Width="150"
-            Height="30"
-            Margin="10"
-            Click="saveChangesButton_Click" 
-            Grid.Column="1"/>
     </Grid>
 </UserControl>
